@@ -16,7 +16,7 @@ export class ReimbursementSingleUser extends React.Component<any, any>{
     }
 
     componentDidMount() {
-        console.log(this.props.user);
+        // console.log(this.props.user);
         this.setState({
             user: this.props.user
         })
@@ -35,7 +35,7 @@ export class ReimbursementSingleUser extends React.Component<any, any>{
                             <EmployeeCardComponent user={this.state.user} />
                         </Col>
                         <Col sm="6">
-                            dfdfdfdfd
+                
             <ViewReimursementComponent user={this.state.user} />
                         </Col>
 

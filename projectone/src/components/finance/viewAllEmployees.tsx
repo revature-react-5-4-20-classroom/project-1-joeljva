@@ -7,6 +7,12 @@ import { withRouter } from "react-router-dom";
 
 import { toast } from "react-toastify";
 
+
+interface IViewState{
+    users:User[]
+
+}
+
 export class ViewAllEmployeeComponent extends React.Component<any, any>{
 
     constructor(props: any) {
@@ -32,7 +38,7 @@ export class ViewAllEmployeeComponent extends React.Component<any, any>{
     }
 
     cardClick = (user: any) => {
-        console.log(this.props.history);
+        // console.log(this.props.history);
 
         this.props.changeUser(user);
 

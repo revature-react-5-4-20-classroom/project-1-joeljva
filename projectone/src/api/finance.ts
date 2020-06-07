@@ -9,7 +9,7 @@ import { Reimbursement } from "../models/reimbursement";
 export const getPending = async (): Promise<Reimbursement[]> => {
     try {
         let response = await project0Client.get("/reimbursements/status/1");
-        console.log(response.data);
+        // console.log(response.data);
         return response.data;
     }
     catch (e) {
@@ -18,11 +18,24 @@ export const getPending = async (): Promise<Reimbursement[]> => {
 
 }
 
+export const getResolved = async (): Promise<Reimbursement[]> => {
+    try {
+        let response = await project0Client.get("/reimbursements/status/2");
+        // console.log(response.data);
+        return response.data;
+    }
+    catch (e) {
+        throw e;
+    }
+
+}
+
+
 //pathc reims
-export const pathReimbursement = async (ri: number, da: string, de: string, re: number, st: number) => {
+export const pathReimbursement = async (ri: number, da: string, de: string, re: number, st: number):Promise<Reimbursement> => {
     try {
         let response = await project0Client.patch("reimbursements", { reimbursementId: ri, dateResolved: da, description: de, resolver: re, status: st });
-        console.log(response.data);
+        // console.log(response.data);
         return response.data;
 
     } catch (e) {
@@ -34,14 +47,14 @@ export const pathReimbursement = async (ri: number, da: string, de: string, re: 
 
 
 //get all users
-export const getAllUsers = async () => {
+export const getAllUsers = async ():Promise<Reimbursement[]> => {
     try {
         let response = await project0Client.get("/users");
-        console.log(response.data);
+        // console.log(response.data);
         return response.data;
 
     } catch (e) {
-        console.log(e);
+        // console.log(e);
         throw e;
     }
 }
@@ -49,11 +62,11 @@ export const getAllUsers = async () => {
 
 //function to fet riems from on user by id
 
-export const getReimsByUserId = async (id: number) => {
+export const getReimsByUserId = async (id: number):Promise<Reimbursement[]> => {
 
     try {
         let response = await project0Client.get(`/reimbursements/author/userId/${id}`);
-        console.log(response.data);
+        // console.log(response.data);
         return response.data;
 
 

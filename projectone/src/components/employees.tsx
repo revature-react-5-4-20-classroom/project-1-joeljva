@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-d
 import { EmployeeCardComponent } from "./employeecard";
 import { ReimbursementComponent, ReimbursementComponentR1, ReimbursementComponentR } from "./reimbursementComponent";
 import { EditProfileComponent, EditProfileComponentR, EditProfileComponentRW } from "./editInfo";
+// import { S3Test } from "./s3test";
 
 
 
@@ -25,6 +26,7 @@ export class EmployeeComponent extends React.Component<any, any>{
 
         return (
             <>
+           
                 <Router>
                     <EmployeeNavigationRouteS />
 

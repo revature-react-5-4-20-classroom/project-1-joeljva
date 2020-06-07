@@ -9,7 +9,15 @@ import { withRouter } from "react-router-dom";
 import { loginSaveUserMapper } from '../redux/action-mappers';
 
 
-export class EditProfileComponent extends React.Component<any, any>{
+interface IEdit{
+    user:User|null;
+    password:string,
+    error:boolean,
+    success:boolean
+}
+
+
+export class EditProfileComponent extends React.Component<any, IEdit>{
 
     constructor(props: any) {
         super(props);
@@ -44,7 +52,7 @@ export class EditProfileComponent extends React.Component<any, any>{
                 let user = Object.assign({}, prevState.user);   //
 
                 user[name] = value;    //make sure to make the target exist
-                console.log(user)
+                // console.log(user)
                 return { user };
 
 
@@ -53,7 +61,7 @@ export class EditProfileComponent extends React.Component<any, any>{
 
             )
         }
-        console.log(this.state.user)
+        // console.log(this.state.user)
 
     }
 
@@ -62,7 +70,7 @@ export class EditProfileComponent extends React.Component<any, any>{
         this.setState({
             password: e.target.value
         })
-        console.log(this.state.password)
+        // console.log(this.state.password)
 
 
     }
@@ -71,7 +79,7 @@ export class EditProfileComponent extends React.Component<any, any>{
         if (this.state.user) {
             let user = this.state.user
             try {
-                let response = await editUsers(user.userId, user.username, user.firstName, user.LastName, user.email, this.state.password);
+                let response = await editUsers(user.userId, user.username, user.firstName, user.lastName, user.email, this.state.password);
                 toast("success", { type: "success" });
                 this.props.history.push("/employee/home");
                 if (user.roleName === "finance-manager") {
@@ -86,7 +94,7 @@ export class EditProfileComponent extends React.Component<any, any>{
                 //     success:true
                 // })
             } catch (e) {
-                console.log(e)
+                // console.log(e)
                 toast("error", { type: "error" });
 
 
@@ -159,8 +167,8 @@ export class EditProfileComponent extends React.Component<any, any>{
 }
 
 const mapStateToProps = (state: IState) => {
-    console.log("in mys state")
-    console.log(state);
+    // console.log("in mys state")
+    // console.log(state);
     return {
         ...state.loginUser
     }

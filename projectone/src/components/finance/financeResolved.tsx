@@ -1,7 +1,8 @@
 import React from "react";
-import { getPending } from "../../api/finance";
+import { getPending, getResolved } from "../../api/finance";
 import { ReimbursementPendingViewComponent } from "../reimbursementsPendingView";
 import { ReimbursementPendingCardComponent } from "./reimbursementPendingCard";
+import { ReimbursementResolvedCardComponent } from "./viewCardFinanceResolved";
 
 
 interface IPendingState{
@@ -11,7 +12,7 @@ interface IPendingState{
 
 
 
-export class PendingComponent extends React.Component<any, IPendingState>{
+export class ResolvedComponent extends React.Component<any, IPendingState>{
 
     constructor(props: any) {
         super(props);
@@ -27,7 +28,7 @@ export class PendingComponent extends React.Component<any, IPendingState>{
     }
 
     getReims = async () => {
-        let response = await getPending();
+        let response = await getResolved();
         // console.log("hello");
         // console.log(response)
         if (response.length > 0) {
@@ -60,7 +61,7 @@ export class PendingComponent extends React.Component<any, IPendingState>{
             return <p></p>
         } else {
             return (
-                <ReimbursementPendingCardComponent changeB={this.changesF} riems={this.state.response} />
+                <ReimbursementResolvedCardComponent changeB={this.changesF} riems={this.state.response} />
             )
 
 

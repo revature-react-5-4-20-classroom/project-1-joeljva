@@ -41,12 +41,12 @@ export class EmployeeCardComponent extends React.Component<ICardProps, any>{
         return (
             <>
 
-                <div className="card bg-info text-white" style={{ backgroundColor: "" }}>
+                <div className="card bg-info text-white" >
 
                     <div className="card-header">
                         <h2>{this.props.user.firstName + "  " + this.props.user.lastName}</h2>
                         <p>{this.props.user.roleName}</p>
-                        <p>{this.props.user.username}</p>
+                        {/* <p>{this.props.user.username}</p> */}
                     </div>
                     <div className="card-body">
                         <p>username:{this.props.user.username}</p>

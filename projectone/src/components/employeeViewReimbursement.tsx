@@ -20,31 +20,7 @@ export class ViewReimursementComponent extends React.Component<any, any>{
     }
 
 
-    // componentDidMount=async()=>{
-    //     console.log(this.props.user)
-    //     // this.setState({
-    //     //     user:this.props.user
-    //     // })
-
-
-
-    // }
-
-
-    // onView=async()=>{
-    //     try{
-    //         let response=await getReimsByUserId(this.props.user.userId);
-    //         console.log(response);
-    //     this.setState({
-    //         reims:response
-    //     })
-    //     }
-    //         catch(e){
-
-    //         }
-
-    // }
-
+  
 
 
 
@@ -53,7 +29,7 @@ export class ViewReimursementComponent extends React.Component<any, any>{
     render() {
         if (!this.props.reims) {
             return (
-                <p>dfdgf</p>
+                <p></p>
             )
         } else if (Array.isArray(this.props.reims)) {
             return (

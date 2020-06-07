@@ -25,10 +25,10 @@ export class ReimbursementPendingViewComponent extends React.Component<any, any>
     componentDidMount = async () => {
 
         let id = this.props.user.userId;
-        console.log(id);
+        // console.log(id);
         try {
             let riems = await getReimbursements(id);
-            console.log(riems);
+            // console.log(riems);
             let riemsFilter = riems.filter((elem: any) => {
 
                 return elem.status === 1;
@@ -38,7 +38,7 @@ export class ReimbursementPendingViewComponent extends React.Component<any, any>
             })
             console.log(riems)
         } catch (e) {
-            console.log(e);
+            // console.log(e);
         }
 
 
@@ -87,7 +87,7 @@ export class ReimbursementPendingViewComponent extends React.Component<any, any>
         }
 
         if (!this.state.riems) {
-            return <h1>No</h1>
+            return <h1></h1>
         }
 
 
@@ -96,8 +96,8 @@ export class ReimbursementPendingViewComponent extends React.Component<any, any>
 
 
 const mapStateToProps = (state: IState) => {
-    console.log("in mys state")
-    console.log(state);
+    // console.log("in mys state")
+    // console.log(state);
     return {
         ...state.loginUser
     }

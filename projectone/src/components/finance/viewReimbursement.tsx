@@ -5,10 +5,19 @@ import { Button, ListGroupItem, ListGroup, CardBody, Card, Modal, ModalBody, For
 import { toast } from "react-toastify";
 
 
+interface IViewState{
+user:any,
+reims:any,
+modal:boolean,
+change:any,
+status:number
 
 
 
-export class ViewReimursementComponent extends React.Component<any, any>{
+}
+
+
+export class ViewReimursementComponent extends React.Component<any, IViewState>{
 
     constructor(props: any) {
         super(props);
@@ -62,7 +71,7 @@ export class ViewReimursementComponent extends React.Component<any, any>{
             change: filterReim[0],
             modal: true,
             status: status,
-            success: false
+            // success: false
         })
 
 
@@ -113,7 +122,7 @@ export class ViewReimursementComponent extends React.Component<any, any>{
             this.setState({
                 modal: false,
                 change: new Reimbursement(0, 0, 0, 0, 0, "", 0, 0, 0),
-                success: true
+                // success: true
             })
         } catch (e) {
             toast("error", { type: "error" });
@@ -127,7 +136,7 @@ export class ViewReimursementComponent extends React.Component<any, any>{
     render() {
         if (!this.state.reims) {
             return (
-                <p>dfdgf</p>
+                <p></p>
             )
         } else if (Array.isArray(this.state.reims)) {
             return (
@@ -172,8 +181,8 @@ export class ViewReimursementComponent extends React.Component<any, any>{
                                             </ListGroup>
                                             {(elem.status == 1) &&
                                                 <>
-                                                    <Button color="success" id="2" value={elem.reimbursementId} onClick={this.onApprove} className="mr-1">Approve</Button>
-                                                    <Button color="danger" id="3" value={elem.reimbursementId} onClick={this.onApprove} className="mr-1">Reject</Button>
+                                                    <Button color="success" id="2" value={elem.reimbursementId} onClick={this.onApprove} className="mr-1 mt-1">Approve</Button>
+                                                    <Button color="danger" id="3" value={elem.reimbursementId} onClick={this.onApprove} className="mr-1 mt-1">Reject</Button>
                                                 </>
                                             }
 
@@ -233,8 +242,8 @@ export class ViewReimursementComponent extends React.Component<any, any>{
                                         <Label for="amount">Amount</Label>
                                         <Input type="text" id="amount" value={this.state.change && this.state.change.amount} disabled />
                                     </FormGroup>
-                                    <Button type="submit" >Submit</Button>
-                                    <Button onClick={this.modalReject}>Cancel</Button>
+                                    <Button type="submit" color="danger" className="mr-1" >Submit</Button>
+                                    <Button onClick={this.modalReject} color="primary">Cancel</Button>
 
 
 

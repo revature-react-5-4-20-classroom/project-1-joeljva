@@ -21,7 +21,7 @@ export class AllEmployees extends React.Component<any, any>{
         this.setState({
             user: user
         })
-        console.log(user)
+        // console.log(user)
     }
 
     render() {

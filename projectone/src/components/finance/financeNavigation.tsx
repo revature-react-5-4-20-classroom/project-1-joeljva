@@ -13,7 +13,7 @@ export class FinanceNavigationComponent extends React.Component<any, any>{
 
 
   logoutUser = (e: any) => {
-    console.log("hello")
+   
     // console.log(this.props.location.pathname)
     this.props.loginSaveUserMapper(null);
     this.props.history.push("/");
@@ -27,7 +27,7 @@ export class FinanceNavigationComponent extends React.Component<any, any>{
       <div>
         <Navbar color="light" light expand="md">
 
-          <Nav tabs>
+          <Nav tabs className="w-100">
             <NavItem>
               <NavLink exact to="/finance/home" className="nav-link" activeClassName="active">Home</NavLink>
             </NavItem>
@@ -40,11 +40,11 @@ export class FinanceNavigationComponent extends React.Component<any, any>{
             <NavItem>
               <NavLink to="/finance/editProfile" className="nav-link" activeClassName="active">Edit Profile</NavLink>
             </NavItem>
-            <NavItem tag={() => { return <Button onClick={this.logoutUser} color="secondary" outline>Logout</Button> }} />
+            <NavItem className="float-right" tag={() => { return <Button className="float-right" onClick={this.logoutUser} color="primary" outline>Logout</Button> }} />
 
 
           </Nav>
-
+          {/* <NavItem className="float-right" tag={() => { return <Button className="float-right" onClick={this.logoutUser} color="primary" outline>Logout</Button> }} /> */}
         </Navbar>
       </div>
 
@@ -61,8 +61,7 @@ export let FinanceNavigationComponentR = withRouter(FinanceNavigationComponent);
 
 
 const mapStateToProps = (state: IState) => {
-  console.log("in mys state")
-  console.log(state);
+ 
   return {
     ...state.loginUser
   }

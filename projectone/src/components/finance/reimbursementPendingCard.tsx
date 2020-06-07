@@ -7,7 +7,8 @@ import { toast } from "react-toastify";
 import { emitKeypressEvents } from "readline";
 
 //riems is the props it is an array with reims
-
+//need to split if time 
+//remove if  else and if only
 interface IReimsProps {
     riems: Reimbursement[],
     history?: any,
@@ -21,7 +22,7 @@ interface IReimState {
     change: any,
     modal: boolean,
     status: number,
-    refresh: boolean
+    
 
 }
 
@@ -31,19 +32,17 @@ export class ReimbursementPendingCardComponent extends React.Component<IReimsPro
         this.state = {
             riems: null,
             change: null,
-            // change:null,
             modal: false,
             status: 0,
-            refresh: false
+           
         }
     }
     approve = (e: any) => {   //for both reject and approve
         let reimId = e.target.value;
-        console.log(reimId);
+        // console.log(reimId);
         let status = e.target.id;
         let filterReim = this.state.riems.filter((elem: Reimbursement) => { return elem.reimbursementId == reimId });
-        // let d=new Date();
-        // filterReim[0].dateResolved=d;
+    
         console.log(filterReim)
         this.setState({
             change: filterReim[0],
@@ -57,7 +56,7 @@ export class ReimbursementPendingCardComponent extends React.Component<IReimsPro
     }
 
     componentDidMount() {
-        console.log(this.props.riems)
+        // console.log(this.props.riems)
         if (this.props.riems) {
             this.setState({
                 riems: this.props.riems,
@@ -66,11 +65,7 @@ export class ReimbursementPendingCardComponent extends React.Component<IReimsPro
         }
     }
 
-    // shouldComponentUpdate=(prevProps:any,PrevState:any)=>{
-
-
-
-    // }
+  
 
 
     modalChange = (e: any) => {
@@ -108,8 +103,8 @@ export class ReimbursementPendingCardComponent extends React.Component<IReimsPro
         let change = this.state.change;
         try {
             let response = await pathReimbursement(change.reimbursementId, change.dateResolved, change.description, change.resolver, this.state.status);
-            console.log("tes");
-            console.log(response);
+            // console.log("tes");
+            // console.log(response);
 
 
             toast("success", { type: "success" });
@@ -121,7 +116,7 @@ export class ReimbursementPendingCardComponent extends React.Component<IReimsPro
             })
         } catch (e) {
             toast("error", { type: "error" });
-            console.log(e);
+            // console.log(e);
         }
         if (this.props.changeB) {
             this.props.changeB();   /// all goofd
@@ -188,8 +183,8 @@ export class ReimbursementPendingCardComponent extends React.Component<IReimsPro
 
                                                 </ListGroup>
 
-                                                <Button color="success"  id="2" value={elem.reimbursementId} onClick={this.approve} className="mr-1">Approve</Button>
-                                                <Button  color="danger" id="3" value={elem.reimbursementId} onClick={this.approve} className="mr-1">Reject</Button>
+                                                <Button color="success"  id="2" value={elem.reimbursementId} onClick={this.approve} className="mr-1 mt-1">Approve</Button>
+                                                <Button  color="danger" id="3" value={elem.reimbursementId} onClick={this.approve} className="mr-1 mt-1">Reject</Button>
 
 
                                             </CardBody>
@@ -203,7 +198,7 @@ export class ReimbursementPendingCardComponent extends React.Component<IReimsPro
                                     </div>)
                             })}
 
-
+{/* //split state into props  */}
                         <Modal isOpen={this.state.modal}>
                             <ModalBody>
                                 <div>
@@ -278,7 +273,7 @@ success
         }
         else {
             return (
-                <p>Error</p>
+                <p></p>
             )
         }
 

@@ -17,9 +17,7 @@ interface IReimbursementStateType {
     type: number
 }
 
-interface IReimbursementPropsType {
-    user: User
-}
+
 export class ReimbursementSubmitComponent extends React.Component<any, IReimbursementStateType>{   //view componnet
 
 
@@ -39,9 +37,9 @@ export class ReimbursementSubmitComponent extends React.Component<any, IReimburs
         }
     }
 
-    componentDidMount = () => {
-        console.log(this.props.user.userId)
-    }
+    // componentDidMount = () => {
+    //     console.log(this.props.user.userId)
+    // }
 
 
 
@@ -72,7 +70,7 @@ export class ReimbursementSubmitComponent extends React.Component<any, IReimburs
     }
     setType = (e: any) => {
         let type = e.target.value;
-        console.log(type);
+        // console.log(type);
         // let name=e.target.name;
         this.setState({
             type: type
@@ -84,13 +82,13 @@ export class ReimbursementSubmitComponent extends React.Component<any, IReimburs
     onSubmit = async (e: any) => {
         e.preventDefault();
         //call the axios function get the reim user and then display the reimbursement from the user
-        console.log(this.state.type);
-        console.log(this.state.description)
-        console.log(this.props.user.userId);
+        // console.log(this.state.type);
+        // console.log(this.state.description)
+        // console.log(this.props.user.userId);
         try {
             let x = await submitReimbursements(this.props.user.userId, this.state.amount, this.state.dateSubmitted, this.state.description, this.state.type);
             toast("success", { type: "success" });
-            console.log(x);
+            // console.log(x);
             this.props.history.push("/employee/reimbursements/pending");
         }
 

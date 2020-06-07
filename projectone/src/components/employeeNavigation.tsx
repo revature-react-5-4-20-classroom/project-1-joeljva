@@ -19,7 +19,7 @@ export class EmployeeNavigationComponent extends React.Component<any, any>{
         e.preventDefault();
         // console.log(this.props.location.pathname)
         if (this.props.location.pathname !== "/employee/reimbursements") {
-            console.log("dfg")
+        
             this.props.history.push("/employee/reimbursements");
         }               // this works
 
@@ -29,7 +29,7 @@ export class EmployeeNavigationComponent extends React.Component<any, any>{
         e.preventDefault();
         // console.log(this.props.location.pathname)
         if (this.props.location.pathname !== "/employee/editprofile") {
-            console.log("dfg")
+        
             this.props.history.push("/employee/editprofile");
         }
 
@@ -46,7 +46,7 @@ export class EmployeeNavigationComponent extends React.Component<any, any>{
     home = (e: any) => {
         e.preventDefault();
         if (this.props.location.pathname !== "/employee/home") {
-            console.log("dfg")
+           
             this.props.history.push("/employee/home");
         }
 
@@ -122,8 +122,7 @@ export class EmployeeNavigationComponent extends React.Component<any, any>{
 export let EmployeeNavigationRoute = withRouter(EmployeeNavigationComponent);
 
 const mapStateToProps = (state: IState) => {
-    console.log("in mys state")
-    console.log(state);
+   
     return {
         ...state.loginUser
     }

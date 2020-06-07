@@ -78,8 +78,7 @@ class App extends React.Component<any, any> {
 export default App;
 
 const mapStateToProps = (state: IState) => {
-  console.log("in mys state")
-  console.log(state);
+
   return {
     ...state.loginUser
   }

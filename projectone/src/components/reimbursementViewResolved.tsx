@@ -7,12 +7,14 @@ import { ViewReimursementComponent } from "./employeeViewReimbursement";
 import { connect } from "react-redux";
 
 
+interface IResolved{
+    riems:Reimbursement[]|null
+}
 
 
 
 
-
-export class ReimbursementResolvedViewComponent extends React.Component<any, any>{
+export class ReimbursementResolvedViewComponent extends React.Component<any, IResolved>{
 
     constructor(props: any) {
         super(props);
@@ -25,10 +27,10 @@ export class ReimbursementResolvedViewComponent extends React.Component<any, any
     componentDidMount = async () => {
 
         let id = this.props.user.userId;
-        console.log(id);
+      
         try {
             let riems = await getReimbursements(id);
-            console.log(riems);
+            // console.log(riems);
             let riemsFilter = riems.filter((elem: any) => {
 
                 return elem.status === 2;
@@ -36,9 +38,9 @@ export class ReimbursementResolvedViewComponent extends React.Component<any, any
             this.setState({
                 riems: riemsFilter
             })
-            console.log(riems)
+            // console.log(riems)
         } catch (e) {
-            console.log(e);
+            // console.log(e);
         }
     }
 
@@ -47,10 +49,7 @@ export class ReimbursementResolvedViewComponent extends React.Component<any, any
 
     render() {
 
-        // console.log(this.props.riems)
-        // let riems:[]=this.props.riems;
-        // let riemsFilter=riems.filter((elem:any)=>{
-        // return elem.type===1;});
+       
 
         if (this.state.riems) {
             return (<>
@@ -68,7 +67,7 @@ export class ReimbursementResolvedViewComponent extends React.Component<any, any
         }
 
         if (!this.state.riems) {
-            return <h1>No</h1>
+            return <h1></h1>
         }
 
 
@@ -77,8 +76,7 @@ export class ReimbursementResolvedViewComponent extends React.Component<any, any
 
 
 const mapStateToProps = (state: IState) => {
-    console.log("in mys state")
-    console.log(state);
+   
     return {
         ...state.loginUser
     }

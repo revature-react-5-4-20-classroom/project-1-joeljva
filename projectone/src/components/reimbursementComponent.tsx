@@ -32,7 +32,7 @@ export class ReimbursementComponent extends React.Component<any, any>{
 
         // console.log(this.props.history)
         if (this.props.location.pathname !== "/employee/reimbursements/submit") {
-            console.log("hello")
+       
             this.props.history.push("/employee/reimbursements/submit");
         }
     }
@@ -40,14 +40,14 @@ export class ReimbursementComponent extends React.Component<any, any>{
     viewReims = async (e: any) => {
         e.preventDefault();
         let id = e.target.id;
-        console.log(id);
+        // console.log(id);
         let riems = await getReimbursements(id);
         this.setState({
             riems: riems
         })
-        console.log(riems);
+        // console.log(riems);
         if (this.props.location.pathname !== "/employee/reimbursements/pending") {
-            console.log("hello")
+            
             this.props.history.push("/employee/reimbursements/pending");
         }
     }
@@ -55,14 +55,14 @@ export class ReimbursementComponent extends React.Component<any, any>{
     viewResolved = async (e: any) => {
         e.preventDefault();
         let id = e.target.id;
-        console.log(id);
+        // console.log(id);
         let riems = await getReimbursements(id);
         this.setState({
             riems: riems
         })
-        console.log(riems);
+        // console.log(riems);
         if (this.props.location.pathname !== "/employee/reimbursements/resolved") {
-            console.log("hello")
+            
             this.props.history.push("/employee/reimbursements/resolved");
         }
     }
@@ -129,8 +129,8 @@ export class ReimbursementComponent extends React.Component<any, any>{
 
 
 const mapStateToProps = (state: IState) => {
-    console.log("in mys state")
-    console.log(state);
+    // console.log("in mys state")
+    // console.log(state);
     return {
         ...state.loginUser
     }
