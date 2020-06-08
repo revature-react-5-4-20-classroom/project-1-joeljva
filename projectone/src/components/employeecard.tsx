@@ -24,7 +24,7 @@ export class EmployeeCardComponent extends React.Component<ICardProps, any>{
 
     clicks = (e: any) => {
         let id = e.target.value;
-        console.log(id);
+        // console.log(id);
         console.log(this.state.user);
         this.props.cardClick(this.state.user);
 

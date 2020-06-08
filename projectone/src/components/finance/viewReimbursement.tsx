@@ -34,8 +34,8 @@ export class ViewReimursementComponent extends React.Component<any, IViewState>{
 
 
     componentDidMount = async () => {
-        console.log(this.props.user)
-        // this.setState({
+        // console.log(this.props.user)
+        // // this.setState({
         //     user:this.props.user
         // })
         this.onView();
@@ -47,7 +47,7 @@ export class ViewReimursementComponent extends React.Component<any, IViewState>{
     onView = async () => {
         try {
             let response = await getReimsByUserId(this.props.user.userId);
-            console.log(response);
+            // console.log(response);
             this.setState({
                 reims: response
             })
@@ -61,12 +61,12 @@ export class ViewReimursementComponent extends React.Component<any, IViewState>{
     //creates the modal
     onApprove = (e: any) => {
         let reimId = e.target.value;
-        console.log(reimId);
+        // console.log(reimId);
         let status = e.target.id;
         let filterReim = this.state.reims.filter((elem: Reimbursement) => { return elem.reimbursementId == reimId });
         // let d=new Date();
         // filterReim[0].dateResolved=d;
-        console.log(filterReim)
+        // console.log(filterReim)
         this.setState({
             change: filterReim[0],
             modal: true,
@@ -94,7 +94,7 @@ export class ViewReimursementComponent extends React.Component<any, IViewState>{
 
 
         })
-        console.log(this.state.change);
+        // console.log(this.state.change);
 
 
     }
@@ -115,8 +115,8 @@ export class ViewReimursementComponent extends React.Component<any, IViewState>{
         let change = this.state.change;
         try {
             let response = await pathReimbursement(change.reimbursementId, change.dateResolved, change.description, change.resolver, this.state.status);
-            console.log("tes");
-            console.log(response);
+            // console.log("tes");
+            // console.log(response);
 
             toast("success", { type: "success" });
             this.setState({

@@ -7,6 +7,7 @@ import { ViewAllEmployeeComponent, ViewAllEmployeeComponentR } from "./viewAllEm
 import { ReimbursementSingleUser } from "./reimbursementSingleUser";
 import { AllEmployees } from "./allEmployees";
 import { EditProfileComponentRW } from "../editInfo";
+import { FooterComponent } from "../Footer";
 
 
 
@@ -49,6 +50,7 @@ export class FinanceComponent extends React.Component<any, any>{
 
 
                 </Router>
+                <FooterComponent/>
 
             </>
 

@@ -3,7 +3,7 @@ import { loginP } from "../api/project0";
 import { User } from "../models/user";
 import { withRouter } from 'react-router-dom'
 import { Button, Container, Row, Col } from "reactstrap";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 
 interface IloginState {
     username: string,
@@ -32,12 +32,12 @@ export class LoginComponent extends React.Component<any, IloginState> {
         event.preventDefault();
         try {
             let user: User = await loginP(this.state.username, this.state.password);   //setting the store there
-            //  this.props.setUser(user);
+            if(user){
             if (user.roleName === "finance-manager") {
                 this.props.history.push("/finance");
             } else {
                 this.props.history.push("/employee");
-            }
+            }}
 
 
 
@@ -78,8 +78,10 @@ export class LoginComponent extends React.Component<any, IloginState> {
 
 
         return (
+          
 
             <>
+             
                 {/* style={{verticalAlign:"middle"}} */}
                 {/* <Container> */}
                 {/* <Row>
@@ -107,6 +109,7 @@ export class LoginComponent extends React.Component<any, IloginState> {
                         <Button color="primary" className="btn-block">Login</Button>
                     </form>
                     </div>
+                    <ToastContainer/>
                 </div>
                 {/* </div> */}
             </>

@@ -58,3 +58,8 @@ export interface IState {
 export const state = combineReducers<IState>({
     loginUser: loginReducer
 })
+
+
+// export const state = combineReducers<any>({
+//     loginUser: loginReducer
+// })

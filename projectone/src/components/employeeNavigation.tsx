@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom'
 import { IState } from "../redux/reducers";
 import { connect } from "react-redux";
 import { loginSaveUserMapper } from "../redux/action-mappers";
-import { NavItem, Navbar, Nav, Button, ButtonToggle } from "reactstrap";
+import { NavItem, Navbar, Nav, Button, ButtonToggle, NavbarBrand } from "reactstrap";
 
 
 
@@ -98,8 +98,15 @@ export class EmployeeNavigationComponent extends React.Component<any, any>{
             // </>
             <div>
                 <Navbar>
+                  
                     <Nav>
+                    <NavbarBrand>
+                        
+                        <img src="../logo.png" width="50" height="30" className="d-inline-block align-top"/>
+                    </NavbarBrand>
                         <NavItem>
+
+                            
                             <ButtonToggle onClick={this.home} outline color="info" className="mr-2" >Home</ButtonToggle>
                         </NavItem>
                         <NavItem>
@@ -111,6 +118,7 @@ export class EmployeeNavigationComponent extends React.Component<any, any>{
                         <NavItem tag={() => { return <Button className="mr-2" onClick={this.logout} color="info" outline>Logout</Button> }} />
                     </Nav>
                 </Navbar>
+                
             </div>
 
 

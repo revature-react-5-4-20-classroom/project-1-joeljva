@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar, Nav, NavItem, Button } from "reactstrap";
+import { Navbar, Nav, NavItem, Button, NavbarBrand } from "reactstrap";
 
 import { NavLink, withRouter } from 'react-router-dom';
 import { IState } from "../../redux/reducers";
@@ -28,6 +28,10 @@ export class FinanceNavigationComponent extends React.Component<any, any>{
         <Navbar color="light" light expand="md">
 
           <Nav tabs className="w-100">
+          <NavbarBrand>
+                        
+                        <img src="../logo.png" width="50" height="30" className="d-inline-block align-top"/>
+                    </NavbarBrand>
             <NavItem>
               <NavLink exact to="/finance/home" className="nav-link" activeClassName="active">Home</NavLink>
             </NavItem>

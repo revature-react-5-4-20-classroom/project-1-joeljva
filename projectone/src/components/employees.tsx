@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-d
 import { EmployeeCardComponent } from "./employeecard";
 import { ReimbursementComponent, ReimbursementComponentR1, ReimbursementComponentR } from "./reimbursementComponent";
 import { EditProfileComponent, EditProfileComponentR, EditProfileComponentRW } from "./editInfo";
+import { FooterComponent } from "./Footer";
 // import { S3Test } from "./s3test";
 
 
@@ -21,12 +22,12 @@ export class EmployeeComponent extends React.Component<any, any>{
     render() {
         // console.log(this.props);
         let user = this.props.user;
-        console.log(user)
+        // console.log(user)
 
 
         return (
             <>
-           
+          
                 <Router>
                     <EmployeeNavigationRouteS />
 
@@ -53,7 +54,7 @@ export class EmployeeComponent extends React.Component<any, any>{
 
                 </Router>
 
-
+<FooterComponent/>
 
             </>
 
@@ -65,8 +66,8 @@ export class EmployeeComponent extends React.Component<any, any>{
 
 
 const mapStateToProps = (state: IState) => {
-    console.log("in mys state")
-    console.log(state);
+    // console.log("in mys state")
+    // console.log(state);
     return {
         ...state.loginUser
     }
